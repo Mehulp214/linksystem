@@ -18,15 +18,16 @@ app = Client("saverestricted", session_string=SESSION, api_hash=API_HASH, api_id
 async def handle_link_command(client, message):
     # Check if the replied message exists and is from a bot
     if message.reply_to_message and message.reply_to_message.sender_chat and message.reply_to_message.sender_chat.is_bot:
-        # Generate a link using the message ID
-        link = f"https://t.me/{message.reply_to_message.sender_chat.username}/{message.reply_to_message.message_id}"
+        # Get the bot's username and the message ID
+        bot_username = message.reply_to_message.sender_chat.username
+        message_id = message.reply_to_message.message_id
+        # Generate the link
+        link = f"https://t.me/{bot_username}/{message_id}"
         # Edit the .link message with the generated link
         await message.edit_text(link)
     else:
         # If there is no replied message from a bot, inform the user
-        link = f"https://t.me/{message.reply_to_message.sender_chat.username}/{message.reply_to_message.message_id}"
-        # Edit the .link message with the generated link
-        await message.edit_text(link)
+        await message.reply_text("Please reply to a message from a bot to generate the link.")
 
 # Run the userbot
 app.run()
