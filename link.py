@@ -24,7 +24,9 @@ async def handle_link_command(client, message):
         await message.edit_text(link)
     else:
         # If there is no replied message from a bot, inform the user
-        await message.reply_text("Please reply to a message from a bot to generate the link.")
+        link = f"https://t.me/{message.reply_to_message.sender_chat.username}/{message.reply_to_message.message_id}"
+        # Edit the .link message with the generated link
+        await message.edit_text(link)
 
 # Run the userbot
 app.run()
