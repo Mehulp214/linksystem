@@ -26,8 +26,8 @@ async def handle_link_command(client, message):
         # Edit the .link message with the generated link
         await message.edit_text(link)
     else:
-        id_ = m.reply_to_message.id
-        chat_id = m.reply_to_message.from_user.username
+        id_ = message.reply_to_message.id
+        chat_id = message.reply_to_message.from_user.username
         await message.reply_text(f"https://t.me/b/{chat_id}/{id}")
 
 # Run the userbot
