@@ -17,19 +17,12 @@ app = Client("saverestricted", session_string=SESSION, api_hash=API_HASH, api_id
 @app.on_message(filters.me & filters.reply & filters.command("link", prefixes="."))
 async def handle_link_command(client, message):
     # Check if the replied message exists and is from a bot
-    if message.reply_to_message and message.reply_to_message.sender_chat and message.reply_to_message.sender_chat.is_bot:
-        # Get the bot's username and the message ID
-        bot_username = message.reply_to_message.sender_chat.username
-        message_id = message.reply_to_message.message_id
-        # Generate the link
-        link = f"https://t.me/{bot_username}/{message_id}"
-        # Edit the .link message with the generated link
-        await message.edit_text(link)
-    else:
-        #id_ = message.reply_to_message.id
-        id = message.reply_to_message.message_id
-        chat_id = message.reply_to_message.from_user.username
-        await message.reply_text(f"https://t.me/b/{chat_id}/{id}")
+    #id_ = message.reply_to_message.id
+    id = message.reply_to_message.message_id
+    chat_id = message.reply_to_message.from_user.username
+    await message.reply_text(f"https://t.me/b/{chat_id}/{id}")
+
+  
 
 # Run the userbot
 app.run()
