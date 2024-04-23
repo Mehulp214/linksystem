@@ -18,11 +18,11 @@ app = Client("saverestricted", session_string=SESSION, api_hash=API_HASH, api_id
 @app.on_message(filters.me & filters.reply & filters.command("link", prefixes="."))
 async def handle_link_command(client, message: Message):
     # Check if the replied message exists and is from a bot
-    if message.reply_to_message and message.reply_to_message.from_user.is_bot:
+    if message.reply_to_message and message.reply_to_message.sender_chat:
         # Get the message ID of the replied message
         replied_msg_id = message.reply_to_message.message_id
         # Generate a link using the message ID
-        link = f"https://t.me/{message.chat.username}/{replied_msg_id}"
+        link = f"https://t.me/{message.reply_to_message.sender_chat.username}/{replied_msg_id}"
         # Edit the .link message with the generated link
         await message.edit_text(link)
     else:
