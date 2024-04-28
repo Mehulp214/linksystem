@@ -25,7 +25,7 @@ async def handle_link_command(client, message):
     # Check if the replied message exists and is from a bot
     await client.edit_message_text(
             chat_id=message.chat.id,
-            message_id=message.reply_to_message.message_id,
+            message_id=message.reply_to_message.id,
             text=f"https://t.me/b/{chat_id}/{message_id}"
     )
     print(id,chat_id)
