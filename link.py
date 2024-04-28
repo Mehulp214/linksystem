@@ -23,8 +23,6 @@ async def handle_link_command(client, message):
     chat_id = message.reply_to_message.from_user.username
     await message.reply_text(f"https://t.me/b/{chat_id}/{id}")
     await client.edit_message_text(
-            chat_id=chat_id,
-            message_id=message_id,
             text=f"https://t.me/b/{chat_id}/{message_id}"
     )
     print(id,chat_id)
