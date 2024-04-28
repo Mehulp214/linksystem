@@ -29,7 +29,7 @@ async def handle_link_command(client, message):
             #message_id=message.reply_to_message.id,
             #text=f"https://t.me/b/{chat_id}/{message_id}"
     #)
-    print(id,chat_id)
+    print(id,chat_idd)
 
  
 
