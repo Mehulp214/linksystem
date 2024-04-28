@@ -21,8 +21,9 @@ async def handle_link_command(client, message):
     id = message.reply_to_message.message_id
     chat_id = message.reply_to_message.from_user.username
     await message.reply_text(f"https://t.me/b/{chat_id}/{id}")
+    print(id,chat_id)
 
-  
+ 
 
 # Run the userbot
 app.run()
