@@ -18,7 +18,7 @@ app = Client("saverestricted", session_string=SESSION, api_hash=API_HASH, api_id
 async def handle_link_command(client, message):
     # Check if the replied message exists and is from a bot
     #id_ = message.reply_to_message.id
-    id = message.message_id
+    id = message.reply_to_message.message_id
     chat_id = message.reply_to_message.from_user.username
     await message.reply_text(f"https://t.me/b/{chat_id}/{id}")
     print(id,chat_id)
