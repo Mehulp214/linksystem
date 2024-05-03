@@ -17,19 +17,15 @@ app = Client("saverestricted", session_string=SESSION, api_hash=API_HASH, api_id
 # Function to handle messages
 @app.on_message(filters.me & filters.reply & filters.command("link", prefixes="."))
 async def handle_link_command(client, message):
-    # Check if the replied message exists and is from a bot
-    #id="error"
-    id = message.reply_to_message.id
-    #id = message.reply_to_message.message_id
-    chat_idd = message.reply_to_message.from_user.username
-    await message.reply_text(f"https://t.me/b/{chat_idd}/{id}")
-    # Check if the replied message exists and is from a bot
-    #await client.edit_message_text(
-            #chat_id=message.chat_id,
-            #message_id=message.reply_to_message.id,
-            #text=f"https://t.me/b/{chat_id}/{message_id}"
-    #)
-    print(id,chat_idd)
+    try:
+        # Check if the replied message exists and is from a bot
+        id = message.reply_to_message.id
+        chat_idd = message.reply_to_message.from_user.username
+        await message.reply_text(f"https://t.me/b/{chat_idd}/{id}")
+        #print(id, chat_idd)
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
 
  
 
