@@ -22,7 +22,7 @@ async def handle_link_command(client, message):
         msg_id = message.reply_to_message.id
         chat_id = message.reply_to_message.from_user.username
         msg = await client.get_messages(chat_id, msg_id)
-        msg = await message.reply_text("Genrating link")
+        #msg = await message.reply_text("Genrating link")
         await msg.edit_text(f"https://t.me/b/{chat_id}/{msg_id}")
     except Exception as e:
         print(f"An error occurred: {e}")
