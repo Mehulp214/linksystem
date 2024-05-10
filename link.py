@@ -1,5 +1,5 @@
 from pyrogram import Client, filters
-
+import asyncio
 # Your session string
 
 SESSION = "AQDJqkIAeRm_Rtdur4xDwf88Uroyo-SEr3xuRCd5PiOn71-p4kmVPPM4g9R1ck3U0Lfv6PzY0TQZQUWx1jh83dtI7aTe5aYRleqYmTIL4zcUbRHWF7VxpBfXC8qxVasScayBkc17311ODCJh6dNbqtvytK5zA3ypnWvuo5bLz-UOAIERm2HP2rjknu3k6-xzFAE3U4NvllO5Ke23C_MtgfXnohILOuwgMyq78jgaNMCvFeWyHEkNIYZ_I61zq9h5VioByuMa7_W4Jng20rqsoCD-fkgi5CngWOJmyodU3LB8srG7opdjqAljUA-khAA9rqgfeiex3HBH8L70qH0JonEpEgvm7QAAAAFSQG5zAA"
@@ -22,6 +22,7 @@ async def handle_link_command(client, message):
         msg_id = message.reply_to_message.id
         chat_id = message.reply_to_message.from_user.username
         await message.edit_text("Generating link...")
+        await asyncio.sleep(3)
         await message.delete()
         await message.reply_text(f"https://t.me/b/{chat_id}/{msg_id}")
     except Exception as e:
